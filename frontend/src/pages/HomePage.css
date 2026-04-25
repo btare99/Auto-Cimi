@@ -118,7 +118,7 @@
   font-size: 15px;
   font-weight: 300;
   line-height: 1.85;
-  color: #555;
+  color: #a0a0a0;
   max-width: 420px;
   margin-bottom: 36px;
   animation: fade-up 0.7s ease 0.2s both;
@@ -221,7 +221,7 @@
   font-size: 10px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: #3a3a3a;
+  color: #777;
 }
 
 .hero-stat-divider {
@@ -440,7 +440,7 @@
   font-size: 11px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: #444;
+  color: #777;
   text-decoration: none;
   padding-bottom: 2px;
   border-bottom: 1px solid #222;
@@ -516,7 +516,7 @@
   font-size: 11px;
   letter-spacing: 0.25em;
   text-transform: uppercase;
-  color: #333;
+  color: #777;
 }
 
 /* ══════════════════════════════
@@ -583,7 +583,7 @@
   font-weight: 700;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: #555;
+  color: #888;
   padding: 5px 12px;
   backdrop-filter: blur(4px);
 }
@@ -598,7 +598,7 @@
   font-size: 10px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: #444;
+  color: #888;
   margin-bottom: 8px;
 }
 
@@ -618,7 +618,7 @@
   font-size: 13px;
   font-weight: 300;
   line-height: 1.75;
-  color: #555;
+  color: #a0a0a0;
   margin: 0 0 20px 0;
 }
 
@@ -629,7 +629,7 @@
   font-family: 'Barlow Condensed', sans-serif;
   font-size: 11px;
   letter-spacing: 0.2em;
-  color: #333;
+  color: #777;
 }
 
 .car-date span {

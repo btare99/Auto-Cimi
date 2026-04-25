@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { fetchNewParts, fetchComingCars } from '../api';
+import logo from '../assets/logo-white.png';
 import PartCard from '../components/PartCard';
 import PartModal from '../components/PartModal';
 import './HomePage.css';
@@ -20,8 +21,8 @@ export default function HomePage() {
           fetchNewParts(),
           fetchComingCars(),
         ]);
-        setNewParts(partsRes.data);
-        setComingCars(carsRes.data);
+        setNewParts(partsRes.data || []);
+        setComingCars(carsRes.data || []);
       } catch (err) {
         console.error('Gabim ngarkimi:', err);
       } finally {
@@ -86,7 +87,7 @@ export default function HomePage() {
           <div className="hero-right">
             <div className="hero-img-frame">
               <img
-                src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=900&q=80"
+                src={logo}
                 alt="Auto parts"
                 className="hero-img"
               />

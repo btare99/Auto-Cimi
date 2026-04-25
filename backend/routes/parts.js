@@ -21,7 +21,7 @@ router.get('/', async (req, res) => {
 
     if (brand) query.brand = brand;
     if (model) query.model = { $regex: model, $options: 'i' };
-    if (year) query.years = parseInt(year);
+    if (year) query.year = parseInt(year);
     if (category) query.category = category;
     if (isNew === 'true') query.isNewPart = true;
     if (isFeatured === 'true') query.isFeatured = true;
@@ -93,7 +93,7 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// POST /api/parts - shto pjese te re (admin)
+// POST /api/parts - shto pjese te re
 router.post('/', async (req, res) => {
   try {
     const part = new Part(req.body);

@@ -6,7 +6,9 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5005;
+
+
 
 // Middleware
 app.use(cors({
@@ -25,16 +27,30 @@ app.use(cors({
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
+// Request Logger (Debug)
+app.use((req, res, next) => {
+  console.log(`[${new Date().toLocaleTimeString()}] ${req.method} ${req.url}`);
+  next();
+});
+
 // MongoDB lidhja
 mongoose
-  .connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/autocimi')
+  .connect(process.env.MONGO_URI || 'mongodb://localhost:27017/autocimi')
   .then(() => console.log('✅ MongoDB u lidh me sukses'))
   .catch((err) => console.error('❌ MongoDB gabim lidhje:', err.message));
 
-// Routes
-app.use('/api/parts', require('./routes/parts'));
-app.use('/api/orders', require('./routes/orders'));
-app.use('/api/coming-cars', require('./routes/comingCars'));
+// Test Route
+app.get('/test', (req, res) => res.json({ message: 'Serveri punon!' }));
+
+// Import Routes
+const partRoutes = require('./routes/parts');
+const orderRoutes = require('./routes/orders');
+const comingCarsRoutes = require('./routes/comingCars');
+
+// Register Routes
+app.use('/api/parts', partRoutes);
+app.use('/api/orders', orderRoutes);
+app.use('/api/coming-cars', comingCarsRoutes);
 
 // Health check
 app.get('/api/health', (req, res) => {
@@ -61,4 +77,5 @@ app.use((err, req, res, next) => {
 
 app.listen(PORT, () => {
   console.log(`🚀 Auto Cimi Backend po ekzekutohet në http://localhost:${PORT}`);
+  console.log('📌 Rrugët e regjistruara: /api/parts, /api/orders, /api/coming-cars');
 });

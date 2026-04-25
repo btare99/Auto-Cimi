@@ -119,22 +119,22 @@
 
 .part-card-brand {
   font-family: 'Barlow', sans-serif;
-  font-size: 11px;
+  font-size: 12px; /* Increased from 11px */
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: #555;
+  color: #777;
 }
 
 .part-card-num {
   font-family: 'Barlow Condensed', sans-serif;
   font-size: 11px;
   letter-spacing: 0.1em;
-  color: #333;
+  color: #555;
 }
 
 .part-card-name {
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 20px;
+  font-size: 22px; /* Increased from 20px */
   font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -181,7 +181,7 @@
   font-size: 11px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: #555;
+  color: #888;
   transition: color 0.2s ease, gap 0.2s ease;
 }
 

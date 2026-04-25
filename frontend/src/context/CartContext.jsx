@@ -1,11 +1,19 @@
-// src/context/CartContext.jsx
-import { createContext, useContext, useState, useCallback } from 'react';
+import { createContext, useContext, useState, useCallback, useEffect } from 'react';
 
 const CartContext = createContext(null);
 
 export function CartProvider({ children }) {
-  const [cartItems, setCartItems] = useState([]);
+  // Load from localStorage on init
+  const [cartItems, setCartItems] = useState(() => {
+    const saved = localStorage.getItem('autocimi_cart');
+    return saved ? JSON.parse(saved) : [];
+  });
   const [cartOpen, setCartOpen] = useState(false);
+
+  // Sync with localStorage
+  useEffect(() => {
+    localStorage.setItem('autocimi_cart', JSON.stringify(cartItems));
+  }, [cartItems]);
 
   const totalCount = cartItems.reduce((s, i) => s + i.qty, 0);
   const totalPrice = cartItems.reduce((s, i) => s + i.price * i.qty, 0);

@@ -149,7 +149,7 @@
   font-weight: 400;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: #555;
+  color: #888;
   background: #0e0e0f;
   border: 1px solid #1a1a1a;
   padding: 5px 10px;
@@ -240,7 +240,7 @@
   font-weight: 400;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: #333;
+  color: #777;
   width: 90px;
   flex-shrink: 0;
 }
@@ -290,7 +290,7 @@
   font-size: 9px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: #333;
+  color: #777;
 }
 
 .pm-price {

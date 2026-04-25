@@ -43,7 +43,17 @@ export default function CheckoutPage() {
 
     setSubmitting(true);
     try {
-      const orderData = { customer: form, items: cartItems, totalAmount: totalPrice };
+      const mappedItems = cartItems.map(item => ({
+        partId: item._id,
+        name: item.name,
+        brand: item.brand,
+        model: item.model,
+        partNumber: item.partNumber,
+        price: item.price,
+        quantity: item.qty // Konvertohet ketu per Backend-in
+      }));
+
+      const orderData = { customer: form, items: mappedItems, totalAmount: totalPrice };
       const res = await createOrder(orderData);
       setOrderResult(res.data);
       clearCart();
@@ -87,35 +97,73 @@ export default function CheckoutPage() {
               <div className="grid-2">
                 <div className="form-group">
                   <label className="form-label">Emri Plote</label>
-                  <input name="name" className={`input ${errors.name ? 'error' : ''}`} value={form.name} onChange={handleChange} />
+                  <input 
+                    name="name" 
+                    className={`input ${errors.name ? 'error' : ''}`} 
+                    value={form.name} 
+                    onChange={handleChange} 
+                    placeholder="p.sh. Artan Hoxha"
+                  />
                   {errors.name && <span style={{ color: 'var(--red)', fontSize: 12 }}>{errors.name}</span>}
                 </div>
                 <div className="form-group">
                   <label className="form-label">Email</label>
-                  <input name="email" type="email" className={`input ${errors.email ? 'error' : ''}`} value={form.email} onChange={handleChange} />
+                  <input 
+                    name="email" 
+                    type="email" 
+                    className={`input ${errors.email ? 'error' : ''}`} 
+                    value={form.email} 
+                    onChange={handleChange} 
+                    placeholder="email@juaj.al"
+                  />
                   {errors.email && <span style={{ color: 'var(--red)', fontSize: 12 }}>{errors.email}</span>}
                 </div>
                 <div className="form-group">
                   <label className="form-label">Telefon</label>
-                  <input name="phone" className={`input ${errors.phone ? 'error' : ''}`} value={form.phone} onChange={handleChange} />
+                  <input 
+                    name="phone" 
+                    className={`input ${errors.phone ? 'error' : ''}`} 
+                    value={form.phone} 
+                    onChange={handleChange} 
+                    placeholder="+355 6x xxx xxxx"
+                  />
                   {errors.phone && <span style={{ color: 'var(--red)', fontSize: 12 }}>{errors.phone}</span>}
                 </div>
                 <div className="form-group">
                   <label className="form-label">Qyteti</label>
-                  <input name="city" className={`input ${errors.city ? 'error' : ''}`} value={form.city} onChange={handleChange} />
+                  <input 
+                    name="city" 
+                    className={`input ${errors.city ? 'error' : ''}`} 
+                    value={form.city} 
+                    onChange={handleChange} 
+                    placeholder="Tiranë, Durrës, etj."
+                  />
                   {errors.city && <span style={{ color: 'var(--red)', fontSize: 12 }}>{errors.city}</span>}
                 </div>
               </div>
               <div className="form-group" style={{ marginTop: 24 }}>
                 <label className="form-label">Adresa</label>
-                <input name="address" className={`input ${errors.address ? 'error' : ''}`} value={form.address} onChange={handleChange} />
+                <input 
+                  name="address" 
+                  className={`input ${errors.address ? 'error' : ''}`} 
+                  value={form.address} 
+                  onChange={handleChange} 
+                  placeholder="Rruga, Blloku, Nr. Apartamentit"
+                />
                 {errors.address && <span style={{ color: 'var(--red)', fontSize: 12 }}>{errors.address}</span>}
               </div>
             </div>
 
             <div className="checkout-section">
               <h3 className="checkout-title">Shënime (Opsionale)</h3>
-              <textarea name="notes" className="input" style={{ minHeight: 100 }} value={form.notes} onChange={handleChange}></textarea>
+              <textarea 
+                name="notes" 
+                className="input" 
+                style={{ minHeight: 100 }} 
+                value={form.notes} 
+                onChange={handleChange}
+                placeholder="Çdo informacion shtesë për dërgesën..."
+              ></textarea>
             </div>
           </form>
 

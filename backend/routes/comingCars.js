@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const ComingCar = require('../models/ComingCar');
 
-// GET /api/coming-cars
+// GET /api/coming-cars (public)
 router.get('/', async (req, res) => {
   try {
     const cars = await ComingCar.find({ isActive: true }).sort({ createdAt: -1 });

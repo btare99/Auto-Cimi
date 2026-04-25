@@ -134,7 +134,7 @@ const buildConfirmationEmailHTML = (order) => `
 </html>
 `;
 
-// POST /api/orders - krijo porosi te re
+// POST /api/orders - krijo porosi te re (public)
 router.post('/', async (req, res) => {
   try {
     const { customer, items, totalAmount } = req.body;
@@ -167,7 +167,6 @@ router.post('/', async (req, res) => {
       });
     } catch (emailErr) {
       console.error('Email dërgimi dështoi:', emailErr.message);
-      // Porosia ruhet edhe nëse email dështon
     }
 
     res.status(201).json({
@@ -176,12 +175,16 @@ router.post('/', async (req, res) => {
       orderId: order._id,
     });
   } catch (err) {
-    console.error(err);
-    res.status(500).json({ message: 'Gabim serveri', error: err.message });
+    console.error('❌ GABIM KRITIK GJATË POROSISË:', err);
+    res.status(500).json({ 
+      message: 'Gabim i brendshëm i serverit', 
+      error: err.message,
+      details: err.errors ? Object.keys(err.errors).map(key => err.errors[key].message) : []
+    });
   }
 });
 
-// GET /api/orders - listo te gjitha (admin)
+// GET /api/orders - listo te gjitha
 router.get('/', async (req, res) => {
   try {
     const { status, page = 1, limit = 20 } = req.query;

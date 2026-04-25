@@ -31,12 +31,15 @@ const orderSchema = new mongoose.Schema({
 });
 
 // Auto-generate order number before saving
-orderSchema.pre('save', async function (next) {
-  if (!this.orderNumber) {
-    const count = await mongoose.model('Order').countDocuments();
-    this.orderNumber = `AC-${String(count + 1).padStart(5, '0')}`;
+orderSchema.pre('save', async function() {
+  if (this.isNew && !this.orderNumber) {
+    try {
+      const count = await mongoose.model('Order').countDocuments();
+      this.orderNumber = `AC-${Date.now().toString().slice(-5)}-${count + 1}`;
+    } catch (err) {
+      this.orderNumber = `AC-${Math.floor(Math.random() * 100000)}`;
+    }
   }
-  next();
 });
 
 module.exports = mongoose.model('Order', orderSchema);

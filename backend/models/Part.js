@@ -8,13 +8,13 @@ const partSchema = new mongoose.Schema({
     required: true,
     enum: ['Peugeot', 'Renault', 'Citroën', 'DS', 'Alpine', 'Hyundai'],
   },
-  model: { type: String, required: true }, // e.g. "3008", "Clio", "Tucson"
-  years: [{ type: Number }],               // e.g. [2018, 2019, 2020]
-  category: { type: String, required: true }, // "Motor", "Frenë", "Suspension", etc.
+  model: { type: String, required: true },
+  year: { type: Number, required: true }, 
+  category: { type: String, required: true }, 
   partNumber: { type: String, default: '' },
   price: { type: Number, required: true, min: 0 },
   stock: { type: Number, default: 0 },
-  images: [{ type: String }],              // URLs or file paths
+  images: [{ type: String }],
   isNewPart: { type: Boolean, default: false },
   isFeatured: { type: Boolean, default: false },
   createdAt: { type: Date, default: Date.now },

@@ -74,7 +74,7 @@
 
 .nav-logo-name {
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 18px;
+  font-size: 24px; /* Increased from 18px */
   font-weight: 800;
   letter-spacing: 0.14em;
   color: #ffffff;
@@ -83,12 +83,12 @@
 
 .nav-logo-sub {
   font-family: 'Barlow', sans-serif;
-  font-size: 9px;
-  font-weight: 300;
-  letter-spacing: 0.22em;
+  font-size: 10px; /* Increased from 8px */
+  font-weight: 400;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
   color: #c8102e;
-  line-height: 1;
+  margin-top: 4px;
 }
 
 /* ══════════════════════════════
@@ -118,7 +118,7 @@
   font-size: 9px;
   font-weight: 300;
   letter-spacing: 0.1em;
-  color: #1e1e1e;
+  color: #444;
   transition: color 0.25s ease;
   line-height: 1;
   margin-top: 1px;
@@ -127,11 +127,11 @@
 /* Label */
 .nav-link-label {
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 11px;
+  font-size: 13px; /* Increased from 11px */
   font-weight: 700;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: #333;
+  color: #888;
   transition: color 0.25s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   display: block;
 }

@@ -68,7 +68,7 @@
 .footer-badge {
   display: inline-block;
   border: 1px solid #2a2a2a;
-  color: #666;
+  color: #aaa;
   font-family: 'Barlow Condensed', sans-serif;
   font-size: 11px;
   letter-spacing: 0.2em;
@@ -136,7 +136,7 @@
 
 .footer-copy {
   font-size: 12px;
-  color: #444;
+  color: #777;
   letter-spacing: 0.03em;
 }
 
@@ -147,7 +147,7 @@
 
 .footer-legal .footer-link {
   font-size: 12px;
-  color: #444;
+  color: #777;
 }
 
 .footer-legal .footer-link:hover {
