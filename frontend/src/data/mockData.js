@@ -1,11 +1,14 @@
 // frontend/src/data/mockData.js
-
+import diskFreni from '../assets/disk-freni-perpara.jpg';
+import filterAjri from '../assets/filter-ajri-motorr.jpg';
+import kthineAmortizator from '../assets/kthine-armotizator-para.jpg';
+import bateri70Ah from '../assets/bateri-70hv.jpg';
 export const parts = [
   // PEUGEOT 3008
-  { _id: '1', name: 'Disk Freni Përpara', brand: 'Peugeot', model: '3008', years: [2017, 2018, 2019, 2020, 2021], category: 'Frenat', partNumber: 'PE-3008-DF-01', price: 45.00, stock: 12, isNewPart: true, isFeatured: true, image: 'https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=600&q=80' },
-  { _id: '2', name: 'Filtër Ajri Motor', brand: 'Peugeot', model: '3008', years: [2016, 2017, 2018, 2019, 2020], category: 'Filtra', partNumber: 'PE-3008-FA-01', price: 18.50, stock: 25, isNewPart: false, isFeatured: false, image: 'https://images.unsplash.com/photo-1599256621730-535171e28e50?w=600&q=80' },
-  { _id: '3', name: 'Kthinë Amortizatori Para', brand: 'Peugeot', model: '3008', years: [2017, 2018, 2019], category: 'Sospensioni', partNumber: 'PE-3008-KA-01', price: 89.00, stock: 8, isNewPart: true, isFeatured: true, image: 'https://images.unsplash.com/photo-1625047509168-a7026f36ae04?w=600&q=80' },
-  { _id: '4', name: 'Bateri 70Ah', brand: 'Peugeot', model: '3008', years: [2016, 2017, 2018, 2019, 2020, 2021], category: 'Elektrik', partNumber: 'PE-3008-BA-01', price: 120.00, stock: 5, isNewPart: false, isFeatured: false, image: 'https://images.unsplash.com/photo-1619641782842-83f2f96033d5?w=600&q=80' },
+  { _id: '1', name: 'Disk Freni Përpara', brand: 'Peugeot', model: '3008', years: [2017, 2018, 2019, 2020, 2021], category: 'Frenat', partNumber: 'PE-3008-DF-01', price: 45.00, stock: 12, isNewPart: true, isFeatured: true, image: diskFreni },
+  { _id: '2', name: 'Filtër Ajri Motor', brand: 'Peugeot', model: '3008', years: [2016, 2017, 2018, 2019, 2020], category: 'Filtra', partNumber: 'PE-3008-FA-01', price: 18.50, stock: 25, isNewPart: false, isFeatured: false, image: filterAjri },
+  { _id: '3', name: 'Kthinë Amortizatori Para', brand: 'Peugeot', model: '3008', years: [2017, 2018, 2019], category: 'Sospensioni', partNumber: 'PE-3008-KA-01', price: 89.00, stock: 8, isNewPart: true, isFeatured: true, image: kthineAmortizator },
+  { _id: '4', name: 'Bateri 70Ah', brand: 'Peugeot', model: '3008', years: [2016, 2017, 2018, 2019, 2020, 2021], category: 'Elektrik', partNumber: 'PE-3008-BA-01', price: 120.00, stock: 5, isNewPart: false, isFeatured: false, image: bateri70Ah },
 
   // PEUGEOT 208
   { _id: '5', name: 'Disk Freni Përpara', brand: 'Peugeot', model: '208', years: [2019, 2020, 2021, 2022], category: 'Frenat', partNumber: 'PE-208-DF-01', price: 38.00, stock: 15, isNewPart: true, isFeatured: true, image: 'https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=600&q=80' },
