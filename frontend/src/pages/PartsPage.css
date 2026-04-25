@@ -126,6 +126,7 @@
   padding-top: 48px;
   padding-bottom: 100px;
   align-items: start;
+  min-width: 0;
 }
 
 /* Mobile toggle */
@@ -413,6 +414,7 @@
 ══════════════════════════════ */
 .parts-main {
   padding-left: 40px;
+  min-width: 0;
 }
 
 .results-header {
@@ -582,7 +584,7 @@
 ══════════════════════════════ */
 @media (max-width: 1024px) {
   .parts-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   }
 }
 
