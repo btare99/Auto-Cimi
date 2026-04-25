@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&family=Barlow:wght@300&display=swap');
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #0e0e0f;
+  gap: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.loading::before {
+  content: 'AUTOCIMI';
+  position: absolute;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 160px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.025);
+  letter-spacing: 0.05em;
+  pointer-events: none;
+  user-select: none;
+  animation: pulse-bg 2s ease-in-out infinite;
+}
+
+@keyframes pulse-bg {
+
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+.loading-logo {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: #ffffff;
+  text-transform: uppercase;
+  animation: fade-in 0.6s ease forwards;
+}
+
+.loading-logo span {
+  color: #c8102e;
+}
+
+.loading-bar-container {
+  width: 180px;
+  height: 2px;
+  background: #1e1e1e;
+  overflow: hidden;
+}
+
+.loading-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #c8102e, #e8394d);
+  animation: slide 1.4s ease-in-out infinite;
+  transform-origin: left;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(-100%) scaleX(0.4);
+  }
+
+  50% {
+    transform: translateX(60%) scaleX(1);
+  }
+
+  100% {
+    transform: translateX(200%) scaleX(0.4);
+  }
+}
+
+.loading-text {
+  font-family: 'Barlow', sans-serif;
+  font-size: 11px;
+  font-weight: 300;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #444;
+  animation: fade-in 0.8s ease 0.3s both;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

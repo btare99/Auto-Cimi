@@ -1,0 +1,56 @@
+/* Auto Cimi - Shared Page Styles */
+
+.page-container {
+  padding-top: calc(var(--navbar-h) + 80px);
+  padding-bottom: 120px;
+  min-height: 100vh;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 100px;
+  align-items: start;
+}
+
+.contact-info-item {
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.contact-info-item h4 {
+  font-family: 'Barlow', sans-serif;
+  font-size: 11px;
+  color: var(--primary);
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+.contact-info-item p {
+  font-size: 16px;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* Form refinement */
+form .form-group {
+  margin-bottom: 24px;
+}
+
+form .input {
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+
+form .input:focus {
+  border-color: var(--primary);
+}
+
+@media (max-width: 992px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+}

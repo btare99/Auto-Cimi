@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@300;400&display=swap');
+
+.footer {
+  background-color: #0e0e0f;
+  color: #c8c8c8;
+  font-family: 'Barlow', sans-serif;
+  font-weight: 300;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer::before {
+  content: 'AUTOCIMI';
+  position: absolute;
+  bottom: -20px;
+  right: -10px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 140px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.025);
+  letter-spacing: 0.05em;
+  pointer-events: none;
+  user-select: none;
+  line-height: 1;
+}
+
+.footer-accent-line {
+  height: 3px;
+  background: linear-gradient(90deg, #c8102e 0%, #e8394d 40%, transparent 100%);
+}
+
+.footer .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 32px 32px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 48px;
+}
+
+/* Logo */
+.footer-logo {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #ffffff;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.footer-logo span {
+  color: #c8102e;
+}
+
+.footer-desc {
+  font-size: 13.5px;
+  line-height: 1.8;
+  color: #888;
+  max-width: 300px;
+  margin-bottom: 20px;
+}
+
+.footer-badge {
+  display: inline-block;
+  border: 1px solid #2a2a2a;
+  color: #666;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+}
+
+/* Titles */
+.footer-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin: 0 0 24px 0;
+  position: relative;
+  padding-bottom: 12px;
+}
+
+.footer-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 24px;
+  height: 1px;
+  background: #c8102e;
+}
+
+/* Links */
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-link {
+  color: #777;
+  text-decoration: none;
+  font-size: 13.5px;
+  letter-spacing: 0.02em;
+  transition: color 0.2s ease, padding-left 0.2s ease;
+  position: relative;
+}
+
+.footer-link:hover {
+  color: #ffffff;
+  padding-left: 8px;
+}
+
+/* Divider */
+.footer-divider {
+  border: none;
+  border-top: 1px solid #1e1e1e;
+  margin-bottom: 28px;
+}
+
+/* Bottom */
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-copy {
+  font-size: 12px;
+  color: #444;
+  letter-spacing: 0.03em;
+}
+
+.footer-legal {
+  display: flex;
+  gap: 24px;
+}
+
+.footer-legal .footer-link {
+  font-size: 12px;
+  color: #444;
+}
+
+.footer-legal .footer-link:hover {
+  color: #aaa;
+  padding-left: 0;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 560px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+}

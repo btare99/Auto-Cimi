@@ -1,0 +1,454 @@
+/* Import premium fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sohne:wght@400;600;700&display=swap');
+
+/* CSS Variables */
+:root {
+  --primary: #000;
+  --error: #ff3b30;
+  --error-light: #ffebee;
+  --text-primary: #1a1a1a;
+  --text-secondary: #666;
+  --text-tertiary: #999;
+  --bg-light: #f5f5f5;
+  --border: #e0e0e0;
+
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Wrapper */
+.error-boundary-wrapper {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  z-index: 9999;
+  overflow: hidden;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Animated Background */
+.error-boundary-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.error-orb {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0;
+  animation: orbFloat 8s ease-in-out infinite;
+  filter: blur(60px);
+}
+
+.error-orb-1 {
+  width: 300px;
+  height: 300px;
+  background: rgba(255, 59, 48, 0.15);
+  top: -150px;
+  right: -150px;
+  animation-delay: 0s;
+}
+
+.error-orb-2 {
+  width: 250px;
+  height: 250px;
+  background: rgba(255, 193, 7, 0.1);
+  bottom: -100px;
+  left: -100px;
+  animation-delay: 2s;
+}
+
+.error-orb-3 {
+  width: 200px;
+  height: 200px;
+  background: rgba(255, 59, 48, 0.08);
+  top: 50%;
+  left: 10%;
+  animation-delay: 4s;
+}
+
+@keyframes orbFloat {
+
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    opacity: 0.6;
+    transform: translate(30px, -30px) scale(1.1);
+  }
+}
+
+/* Main Container */
+.error-boundary {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  padding: 40px;
+  max-width: 500px;
+  width: 100%;
+  animation: slideUp var(--transition-slow) cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Error Icon */
+.error-icon-wrapper {
+  margin-bottom: 32px;
+  animation: iconBounce 2s ease-in-out infinite;
+  animation-delay: 0.2s;
+}
+
+.error-icon {
+  color: var(--error);
+  width: 120px;
+  height: 120px;
+  display: inline-block;
+  animation: iconPulse 2s ease-in-out infinite;
+  animation-delay: 0.2s;
+}
+
+@keyframes iconBounce {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes iconPulse {
+
+  0%,
+  100% {
+    filter: drop-shadow(0 0 0 rgba(255, 59, 48, 0));
+  }
+
+  50% {
+    filter: drop-shadow(0 0 20px rgba(255, 59, 48, 0.3));
+  }
+}
+
+/* Content */
+.error-content {
+  animation: contentFadeIn var(--transition-slow) cubic-bezier(0.16, 1, 0.3, 1);
+  animation-delay: 0.3s;
+  animation-fill-mode: both;
+}
+
+@keyframes contentFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Title */
+.error-title {
+  font-family: 'Sohne', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0 0 16px 0;
+  color: var(--text-primary);
+  letter-spacing: -0.5px;
+}
+
+/* Message */
+.error-message {
+  font-size: 16px;
+  color: var(--text-secondary);
+  margin: 0 0 24px 0;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+/* Error Details */
+.error-details {
+  background: var(--error-light);
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 32px;
+  animation: detailsFadeIn var(--transition-slow) cubic-bezier(0.16, 1, 0.3, 1);
+  animation-delay: 0.4s;
+  animation-fill-mode: both;
+}
+
+@keyframes detailsFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.error-code {
+  font-size: 13px;
+  color: var(--error);
+  margin: 0;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+
+.error-code span {
+  font-family: 'Sohne', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  display: block;
+  margin-top: 4px;
+}
+
+/* Actions */
+.error-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  animation: actionsFadeIn var(--transition-slow) cubic-bezier(0.16, 1, 0.3, 1);
+  animation-delay: 0.5s;
+  animation-fill-mode: both;
+}
+
+@keyframes actionsFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Refresh Button */
+.btn-refresh {
+  padding: 14px 24px;
+  background: var(--error);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all var(--transition-fast);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  letter-spacing: -0.2px;
+}
+
+.btn-refresh:hover {
+  background: #ff2416;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255, 59, 48, 0.3);
+}
+
+.btn-refresh:active {
+  transform: translateY(0);
+}
+
+.btn-refresh svg {
+  transition: transform var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.btn-refresh:hover svg {
+  transform: rotate(180deg);
+}
+
+/* Home Button */
+.btn-home {
+  padding: 12px 24px;
+  background: transparent;
+  color: var(--text-primary);
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all var(--transition-fast);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  letter-spacing: -0.2px;
+}
+
+.btn-home:hover {
+  border-color: var(--text-primary);
+  background: var(--bg-light);
+  transform: translateY(-2px);
+}
+
+.btn-home:active {
+  transform: translateY(0);
+}
+
+.btn-home svg {
+  flex-shrink: 0;
+}
+
+/* Error Hint */
+.error-hint {
+  margin-top: 24px;
+  font-size: 13px;
+  color: var(--text-tertiary);
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  animation: hintFadeIn var(--transition-slow) cubic-bezier(0.16, 1, 0.3, 1);
+  animation-delay: 0.6s;
+  animation-fill-mode: both;
+}
+
+@keyframes hintFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .error-boundary-wrapper {
+    padding: 20px;
+  }
+
+  .error-boundary {
+    padding: 24px;
+    max-width: 100%;
+  }
+
+  .error-title {
+    font-size: 26px;
+    margin-bottom: 12px;
+  }
+
+  .error-message {
+    font-size: 15px;
+    margin-bottom: 20px;
+  }
+
+  .error-icon-wrapper {
+    margin-bottom: 24px;
+  }
+
+  .error-icon {
+    width: 100px;
+    height: 100px;
+  }
+
+  .error-actions {
+    gap: 10px;
+  }
+
+  .btn-refresh,
+  .btn-home {
+    padding: 12px 16px;
+    font-size: 14px;
+  }
+
+  .error-orb-1 {
+    width: 200px;
+    height: 200px;
+  }
+
+  .error-orb-2 {
+    width: 180px;
+    height: 180px;
+  }
+
+  .error-orb-3 {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-primary: #fff;
+    --text-secondary: #ccc;
+    --text-tertiary: #999;
+    --bg-light: #2a2a2a;
+    --border: #333;
+    --error-light: rgba(255, 59, 48, 0.15);
+  }
+
+  .error-boundary-wrapper {
+    background: #1a1a1a;
+  }
+
+  .error-orb-1 {
+    background: rgba(255, 59, 48, 0.2);
+  }
+
+  .error-orb-2 {
+    background: rgba(255, 193, 7, 0.12);
+  }
+
+  .error-orb-3 {
+    background: rgba(255, 59, 48, 0.1);
+  }
+
+  .btn-home:hover {
+    background: #2a2a2a;
+    border-color: #666;
+  }
+
+  .error-details {
+    background: rgba(255, 59, 48, 0.1);
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+
+  .error-boundary,
+  .error-icon-wrapper,
+  .error-content,
+  .error-details,
+  .error-actions,
+  .error-hint,
+  .error-orb,
+  .error-icon {
+    animation: none !important;
+  }
+
+  .btn-refresh svg,
+  .btn-refresh:hover svg {
+    transform: none;
+  }
+}
