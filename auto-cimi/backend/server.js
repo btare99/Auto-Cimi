@@ -70,6 +70,15 @@ app.use('/api/reservations', reservationRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/upload', uploadRoutes);
 
+// Root route
+app.get('/', (req, res) => {
+  res.json({ 
+    message: 'Mirëseerdhët në Auto Cimi API', 
+    version: '1.0.0',
+    endpoints: ['/api/parts', '/api/orders', '/api/health']
+  });
+});
+
 // Health check
 app.get('/api/health', (req, res) => {
   const mongoStatus = mongoose.connection.readyState;
