@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Inter:wght@300;400;600;800&display=swap');
+
+:root {
+  --primary: #e44d26;
+  /* Tomato Red */
+  --secondary: #ff8c00;
+  /* Sunset Orange */
+  --bg: #fffcf7;
+  /* Warm Cream */
+  --text: #2d1b14;
+  /* Deep Brown */
+  --text-muted: #7d6b63;
+  --card-bg: #ffffff;
+  --font-display: 'Fraunces', serif;
+  --font-main: 'Inter', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-main);
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── Typography ── */
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 900;
+}
+
+/* ── Custom Button ── */
+.btn-warm {
+  background: var(--primary);
+  color: white;
+  padding: 16px 32px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
+  display: inline-block;
+  transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(228, 77, 38, 0.2);
+}
+
+.btn-warm:hover {
+  transform: scale(1.05) rotate(-2deg);
+  background: var(--secondary);
+}
+
+/* ── Navbar ── */
+.navbar {
+  padding: 30px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--primary);
+  text-decoration: none;
+}
+
+/* ── Hero ── */
+.hero {
+  padding: 180px 0 100px;
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  position: relative;
+}
+
+.hero-text h1 {
+  font-size: 84px;
+  line-height: 1;
+  margin-bottom: 24px;
+  color: var(--text);
+}
+
+.hero-text h1 span {
+  color: var(--primary);
+}
+
+.hero-img-wrap {
+  flex: 1;
+  position: relative;
+}
+
+.hero-pizza {
+  width: 100%;
+  max-width: 550px;
+  filter: drop-shadow(0 30px 60px rgba(45, 27, 20, 0.15));
+  animation: rotate-slow 20s linear infinite;
+}
+
+@keyframes rotate-slow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ── Pizza Grid ── */
+.menu-section {
+  padding: 100px 0;
+}
+
+.pizza-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 40px;
+}
+
+.pizza-card {
+  background: var(--card-bg);
+  border-radius: 40px;
+  padding: 40px;
+  text-align: center;
+  transition: 0.4s;
+  border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.pizza-card:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 40px 80px rgba(45, 27, 20, 0.08);
+}
+
+.card-img {
+  width: 220px;
+  height: 220px;
+  object-fit: contain;
+  margin-bottom: 30px;
+  border-radius: 50%;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.card-price {
+  font-family: var(--font-display);
+  font-size: 28px;
+  color: var(--primary);
+  margin: 15px 0;
+}
+
+.card-sizes {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-text h1 {
+    font-size: 54px;
+  }
+}
