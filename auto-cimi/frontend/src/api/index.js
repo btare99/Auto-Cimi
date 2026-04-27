@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // URL e Backend-it (ne produksion kjo do te jete URL e serverit tuaj)
-const API_URL = '/api';
+const API_URL = import.meta.env.VITE_API_URL || '/api';
 
 const api = axios.create({
   baseURL: API_URL,
@@ -49,14 +49,14 @@ export const createReservation = async (reservationData) => {
   return response.data;
 };
 
-const API = { 
-  fetchParts, 
-  fetchPartById, 
-  fetchFilters, 
-  fetchNewParts, 
-  createOrder, 
+const API = {
+  fetchParts,
+  fetchPartById,
+  fetchFilters,
+  fetchNewParts,
+  createOrder,
   fetchComingCars,
-  createReservation 
+  createReservation
 };
 
 export default API;

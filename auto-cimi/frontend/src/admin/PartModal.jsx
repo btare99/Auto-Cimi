@@ -3,6 +3,8 @@ import axios from 'axios';
 import toast from 'react-hot-toast';
 import './PartModal.css';
 
+const API_URL = import.meta.env.VITE_API_URL || '/api';
+
 export default function PartModal({ part, onClose, onSave }) {
   const [formData, setFormData] = useState({
     name: '',
@@ -59,7 +61,7 @@ export default function PartModal({ part, onClose, onSave }) {
     uploadData.append('image', file);
 
     try {
-      const res = await axios.post('/api/upload', uploadData, {
+      const res = await axios.post(`${API_URL}/upload`, uploadData, {
         headers: { 
           'Content-Type': 'multipart/form-data',
           Authorization: `Bearer ${token}` 
