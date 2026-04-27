@@ -82,21 +82,9 @@ app.get('/api/health', (req, res) => {
   });
 });
 
-// SERVE FRONTEND (In Production)
-const frontendPath = path.join(__dirname, '../frontend/dist');
-app.use(express.static(frontendPath));
-
-// CATCH-ALL ROUTE (MUST BE LAST)
-app.get('*', (req, res) => {
-  if (req.originalUrl.startsWith('/api')) {
-    return res.status(404).json({ message: 'Rruga e API nuk u gjet' });
-  }
-  res.sendFile(path.join(frontendPath, 'index.html'));
-});
-
 // Error Handler
 app.use((req, res) => {
-  res.status(404).json({ message: 'Rruga nuk u gjet' });
+  res.status(404).json({ message: 'Rruga e API nuk u gjet' });
 });
 
 // Error handler
