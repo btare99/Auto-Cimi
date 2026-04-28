@@ -23,16 +23,9 @@ const PORT = process.env.PORT || 5005;
 
 // Middleware
 app.use(cors({
-  origin: (origin, callback) => {
-    // Allow requests with no origin (Postman, server-to-server) or localhost
-    if (!origin || origin.startsWith('http://localhost')) {
-      callback(null, true);
-    } else if (origin === process.env.FRONTEND_URL) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
+  origin: '*', // Lejon çdo adresë (Vercel, localhost, etj)
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
 }));
 app.use(express.json({ limit: '10mb' }));
