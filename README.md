@@ -1,106 +1,106 @@
-# 🚗 Auto Cimi - Platformë Moderne E-commerce për Pjesë Këmbimi
+# 🚗 Auto Cimi - Modern E-commerce Platform for Spare Parts
 
-Një platformë profesionale full-stack e ndërtuar me stack-un MERN (MongoDB, Express, React, Node.js) për menaxhimin dhe shitjen e pjesëve të këmbimit për makina. Ky projekt është i optimizuar posaçërisht për pjesë të makinave Franceze dhe Hyundai, me një dizajn modern dhe performancë të lartë.
+A professional, full-stack e-commerce platform built with the MERN stack (MongoDB, Express, React, Node.js) specifically designed for managing and selling vehicle spare parts. Optimized for French and Hyundai car parts, featuring a sleek UI and high-performance architecture.
 
 ![Auto Cimi Banner](https://images.unsplash.com/photo-1486006396113-ad7302ff172c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80)
 
-## ✨ Karakteristikat Kryesore
+## ✨ Key Features
 
-### 🌐 Frontend (Faqja e Klientit)
-- **Dizajn Premium**: Ndërfaqe "Cold" dhe minimaliste e ndërtuar me React dhe CSS moderne.
-- **Kërkim i Avancuar**: Filtra të detajuar sipas Markës, Modelit dhe Vitit të makinës.
-- **Coming Soon**: Seksion i veçantë për makinat që priten të vijnë së shpejti.
-- **New Arrivals**: Shfaqja e pjesëve më të reja në magazinë.
-- **Rezervime Online**: Mundësi për të rezervuar pjesë ose shërbime direkt nga platforma.
-- **Responsive**: Eksperiencë e plotë në çdo pajisje (Mobile, Tablet, Desktop).
+### 🌐 Frontend (Customer Facing)
+- **Premium UI/UX**: Minimalist "Cold" aesthetic built with React and modern CSS.
+- **Advanced Filtering**: Detailed search system based on Brand, Model, and Year.
+- **Coming Soon Section**: Dedicated space for upcoming vehicle arrivals.
+- **New Arrivals**: Dynamic showcase of the latest inventory additions.
+- **Online Reservations**: Direct booking for parts or services through the platform.
+- **Fully Responsive**: Optimized experience across all devices (Mobile, Tablet, Desktop).
 
-### 🔐 Paneli i Menaxhimit (Admin)
-- **Menaxhimi i Inventarit**: Shtim, modifikim dhe fshirje e pjesëve të këmbimit.
-- **Menaxhimi i Porosive**: Ndjekja e porosive të klientëve në kohë reale.
-- **Sistemi i Njoftimeve**: Email-e automatike për çdo porosi të re.
-- **Siguri e Lartë**: Autentikim me JWT (JSON Web Tokens) për mbrojtjen e të dhënave.
+### 🔐 Admin Dashboard
+- **Inventory Management**: Full CRUD operations for spare parts and stock.
+- **Order Tracking**: Real-time monitoring and management of customer orders.
+- **Automated Notifications**: Instant email alerts for new orders via Nodemailer.
+- **Secure Authentication**: JWT-protected routes for administrative access.
 
-### 🛠️ Teknologjitë e Përdorura
+### 🛠️ Tech Stack
 
 **Frontend:**
 - React.js (Vite)
-- Framer Motion (Animacione)
-- Axios (Integrimi i API)
-- Context API (Menaxhimi i Gjendjes)
-- Vanilla CSS (Me variabla moderne)
+- Framer Motion (Animations)
+- Axios (API Integration)
+- Context API (State Management)
+- Vanilla CSS (Modern CSS Variables)
 
 **Backend:**
 - Node.js & Express.js
 - MongoDB & Mongoose
 - JSON Web Tokens (JWT)
-- Nodemailer (Njoftimet me Email)
-- Multer (Menaxhimi i Fotove)
+- Nodemailer (Email Integration)
+- Multer (Image Handling)
 
-## 🚀 Instalimi dhe Konfigurimi
+## 🚀 Installation & Setup
 
-### Parakushtet
-- Node.js i instaluar
-- MongoDB (Lokal ose Atlas)
+### Prerequisites
+- Node.js installed
+- MongoDB (Local or Atlas)
 
-### 1. Klonimi i Projektit
+### 1. Clone the Repository
 ```bash
 git clone https://github.com/your-username/auto-cimi.git
 cd auto-cimi
 ```
 
-### 2. Konfigurimi i Backend-it
+### 2. Backend Configuration
 ```bash
 cd backend
 npm install
 ```
-Krijoni një skedar `.env` në folderin `backend`:
+Create a `.env` file in the `backend` folder:
 ```env
 PORT=5005
-MONGO_URI=lidhja_juaj_mongodb
-JWT_SECRET=çelësi_juaj_sekret
-EMAIL_USER=email@juaj.com
-EMAIL_PASS=fjalëkalimi_i_aplikacionit
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_secret_key
+EMAIL_USER=your_email@domain.com
+EMAIL_PASS=your_app_specific_password
 ```
-Populllimi i databazës me të dhëna fillestare (opsionale):
+Seed the database with initial data (optional):
 ```bash
 node seedParts.js
 ```
-Nisja e serverit:
+Start the server:
 ```bash
 npm start
 ```
 
-### 3. Konfigurimi i Frontend-it
+### 3. Frontend Configuration
 ```bash
 cd ../frontend
 npm install
 npm run dev
 ```
 
-Platforma do të jetë e aksesueshme në `http://localhost:5173`.
+The platform will be available at `http://localhost:5173`.
 
-## 📁 Struktura e Projektit
+## 📁 Project Structure
 
 ```text
 auto-cimi/
-├── backend/                # API me Express & Node.js
-│   ├── models/             # Skemat e Mongoose
-│   ├── routes/             # Endpoints të API
-│   ├── middleware/         # Siguria dhe Validimet
-│   ├── uploads/            # Fotot e produkteve
-│   └── server.js           # Pika e hyrjes së serverit
-├── frontend/               # Aplikacioni React
+├── backend/                # Express & Node.js API
+│   ├── models/             # Mongoose Schemas
+│   ├── routes/             # API Endpoints
+│   ├── middleware/         # Auth & Validation
+│   ├── uploads/            # Product Images
+│   └── server.js           # Server Entry Point
+├── frontend/               # React Application
 │   ├── src/
-│   │   ├── components/     # Komponentët UI
-│   │   ├── context/        # Menaxhimi i state-it
-│   │   ├── pages/          # Faqet kryesore
+│   │   ├── components/     # UI Components
+│   │   ├── context/        # State Management
+│   │   ├── pages/          # Main Views
 │   │   └── App.jsx         # Routing & Layout
 │   └── package.json
 └── README.md
 ```
 
-## 📜 Licenca
-Ky projekt është i licencuar nën Licencën MIT.
+## 📜 License
+This project is licensed under the MIT License.
 
 ---
-Ndërtuar me profesionalizëm për **Auto Cimi**.
+Built with passion for **Auto Cimi**.
